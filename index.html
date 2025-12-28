@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Civic Lens | Truth & Democracy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Premium Dark Theme Base */
+    body { 
+        font-family: 'Inter', sans-serif; 
+        scroll-behavior: smooth; 
+        background: radial-gradient(circle at 20% 80%, #020617 0%, #020617 40%, #02010b 100%);
+        color: #f8fafc;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* Background Effects */
+    .hero-image-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("https://img.freepik.com/free-photo/indian-people-standing-queue-vote_53876-139970.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.15) saturate(0.3);
+      z-index: -2;
+    }
+
+    .card-glass {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+        transform: translateY(-8px);
+        border-color: rgba(249, 115, 22, 0.4);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        background: rgba(30, 41, 59, 0.5);
+    }
+
+    .nav-glass {
+        background: rgba(2, 6, 23, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Marquee Animation */
+    .party-track {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding: 16px 24px;
+      animation: scroll-parties 35s linear infinite;
+    }
+
+    @keyframes scroll-parties {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .party-track:hover {
+        animation-play-state: paused;
+    }
+
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 10px;
+    }
+
+    /* Quiz Styling */
+    .quiz-card {
+        background: rgba(15, 23, 42, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+    }
+
+    ::selection {
+        background-color: rgba(249, 115, 22, 0.4);
+        color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="nav-glass sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-eye text-orange-500 text-2xl"></i>
+        <div>
+          <div class="font-black text-xl tracking-tight text-white uppercase leading-none">Civic<span class="text-blue-500">Lens</span></div>
+          <div class="text-[9px] uppercase tracking-[3px] text-slate-500 font-bold mt-1">Truth • Unity • Democracy</div>
+        </div>
+      </div>
+
+      <!-- Main Navigation -->
+      <nav class="hidden md:flex gap-8">
+        <a href="index.html" class="text-[10px] uppercase tracking-widest font-black text-orange-500 transition-colors">Home</a>
+        <a href="#fact-check" class="text-[10px] uppercase tracking-widest font-black text-slate-400 hover:text-orange-500 transition-colors">Fact Check</a>
+        <a href="#updates" class="text-[10px] uppercase tracking-widest font-black text-slate-400 hover:text-orange-500 transition-colors">Updates</a>
+        <a href="learn.html" class="text-[10px] uppercase tracking-widest font-black text-slate-400 hover:text-orange-500 transition-colors">Learn</a>
+      </nav>
+      
+      <div class="md:hidden">
+        <i class="fa-solid fa-bars text-white text-xl"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 px-4 text-center">
+    <div class="hero-image-bg"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/90 to-[#020617] z-[-1]"></div>
+    
+    <div class="max-w-4xl relative z-10">
+      <span class="text-orange-500 font-black tracking-[0.4em] uppercase text-xs mb-6 block">Citizen Empowerment Portal</span>
+      <h1 class="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
+        CIVIC <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-400 to-white">LENS</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+        Your unified platform for voter verification, non-partisan fact checks, and real-time electoral updates across the Republic of India.
+      </p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="https://electoralsearch.eci.gov.in/" target="_blank" class="group px-10 py-5 bg-orange-600 hover:bg-orange-700 text-white rounded-full font-black text-xs tracking-widest uppercase shadow-2xl shadow-orange-900/40 transition-all transform hover:scale-105 flex items-center gap-3">
+          <i class="fa-solid fa-user-check text-lg"></i> Start Verification
+        </a>
+        <a href="learn.html" class="px-10 py-5 border border-slate-700 bg-slate-800/40 hover:bg-slate-800 text-slate-300 rounded-full font-black text-xs tracking-widest uppercase transition-all flex items-center gap-3 group">
+          <i class="fa-solid fa-book-open group-hover:text-orange-500 transition-colors"></i> Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Action Cards -->
+      <div class="lg:col-span-7 space-y-8">
+        <a href="https://electoralsearch.eci.gov.in/" target="_blank" class="block group">
+          <section id="voter-verification" class="card-glass p-10 rounded-[3rem] card-hover relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-8 text-slate-800/20 pointer-events-none">
+                <i class="fa-solid fa-address-card text-9xl"></i>
+            </div>
+            <span class="text-[10px] font-black text-orange-500 uppercase tracking-widest mb-6 block">Secure ECI Access</span>
+            <div class="flex items-center gap-5 mb-6">
+               <div class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-500 border border-orange-500/20">
+                  <i class="fa-solid fa-fingerprint text-3xl"></i>
+               </div>
+               <h2 class="text-3xl font-black text-white leading-none">Voter Verification</h2>
+            </div>
+            <p class="text-slate-400 text-base leading-relaxed mb-8">
+              Confirm your official registration status, polling station location, and assembly details directly from the Election Commission of India. 
+            </p>
+            <div class="flex items-center text-blue-400 text-xs font-black uppercase tracking-widest group-hover:gap-3 transition-all">
+                Access Official Portal <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+            </div>
+          </section>
+        </a>
+
+        <section id="fact-check" class="card-glass p-10 rounded-[3rem] card-hover relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-8 text-slate-800/20 pointer-events-none">
+                <i class="fa-solid fa-check-double text-9xl"></i>
+          </div>
+          <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-6 block">Integrity Center</span>
+          <div class="flex items-center gap-5 mb-6">
+             <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 border border-blue-500/20">
+                <i class="fa-solid fa-shield-halved text-3xl"></i>
+             </div>
+             <h2 class="text-3xl font-black text-white leading-none">Fact Check Engine</h2>
+          </div>
+          <p class="text-slate-400 text-base leading-relaxed">
+            Verify claims, manifestos, and election-related forwards with curated, non‑partisan fact‑checking resources.
+          </p>
+        </section>
+      </div>
+
+      <!-- News Feed -->
+      <aside id="updates" class="lg:col-span-5">
+        <div class="card-glass p-10 rounded-[3rem] h-full flex flex-col">
+          <div class="flex justify-between items-center mb-10">
+            <h2 class="text-xs font-black text-white uppercase tracking-widest">Election Wire</h2>
+            <span class="text-[10px] bg-blue-600/20 text-blue-400 px-4 py-1.5 rounded-full border border-blue-500/20 font-bold tracking-widest">LIVE</span>
+          </div>
+
+          <div class="space-y-8 flex-grow">
+            <article class="p-6 rounded-3xl bg-slate-800/20 border border-slate-700/30 group cursor-pointer hover:bg-slate-800/40 transition-colors">
+              <span class="text-[9px] font-black text-orange-500 uppercase mb-2 block">Top Story</span>
+              <h3 class="text-white font-bold text-base mb-2 group-hover:text-blue-400">NDA crosses 200-seat mark again in Bihar assembly election 2025.</h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-4">BJP emerges as single largest party in the state results.</p>
+              <div class="text-[10px] text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-clock"></i> Updated Recently
+              </div>
+            </article>
+
+            <article class="p-6 rounded-3xl bg-slate-800/20 border border-slate-700/30 group cursor-pointer hover:bg-slate-800/40 transition-colors">
+              <span class="text-[9px] font-black text-green-500 uppercase mb-2 block">Analysis</span>
+              <h3 class="text-white font-bold text-base mb-2 group-hover:text-blue-400">Political scorecard 2025: Year bookended by key state elections.</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">National review of major winners and losers across various contests.</p>
+            </article>
+          </div>
+
+          <button class="w-full mt-10 py-4 bg-slate-800 hover:bg-slate-900 text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl transition-all border border-slate-700/50">
+            View More Updates
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Party Marquee -->
+    <section class="mt-24 py-12 border-t border-slate-800">
+      <h4 class="text-center text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">Major Election Entities</h4>
+      <div class="overflow-hidden relative bg-slate-950/40 py-8 rounded-[3rem] border border-slate-800">
+        <div class="party-track">
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-orange-500 transition-all transform group-hover:-translate-y-2">🪷</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">BJP</span>
+          </div>
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-blue-500 transition-all transform group-hover:-translate-y-2">🧹</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">AAP</span>
+          </div>
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-green-500 transition-all transform group-hover:-translate-y-2">✋</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">INC</span>
+          </div>
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-orange-500 transition-all transform group-hover:-translate-y-2">➤</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">JDU</span>
+          </div>
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-purple-400 transition-all transform group-hover:-translate-y-2">🐘</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">BSP</span>
+          </div>
+          <!-- Duplicates for marquee -->
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-orange-500 transition-all transform group-hover:-translate-y-2">🪷</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">BJP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="onoe-quiz" class="py-24">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <span class="text-orange-500 font-black tracking-widest uppercase text-[10px] mb-4 block">Assessment</span>
+        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Challenge Your Knowledge</h2>
+        <p class="text-slate-400 text-lg font-light leading-relaxed">Test your civic awareness on the ONOE initiative and electoral integrity.</p>
+      </div>
+      <div id="quiz-root" class="max-w-2xl mx-auto px-4"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-20 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-sm text-slate-500 mb-16">
+      <div>
+        <h5 class="text-white font-black uppercase text-xs tracking-widest mb-6 tracking-widest">Contact</h5>
+        <p>support@civiclens.demo</p>
+      </div>
+      <div>
+        <h5 class="text-white font-black uppercase text-xs tracking-widest mb-6 tracking-widest">Privacy</h5>
+        <p>Civic Lens is a high-fidelity educational prototype.</p>
+      </div>
+      <div>
+        <h5 class="text-white font-black uppercase text-xs tracking-widest mb-6 tracking-widest">Resources</h5>
+        <ul class="space-y-2 text-blue-500 font-bold uppercase text-[10px]">
+          <li><a href="https://www.eci.gov.in/" class="hover:text-white">ECI Official</a></li>
+          <li><a href="https://ddnews.gov.in/" class="hover:text-white">DD News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto pt-10 border-t border-slate-900/50 text-center">
+         <div class="text-white font-black text-2xl uppercase tracking-widest">Civic <span class="text-blue-500">Lens</span></div>
+         <p class="text-[9px] text-slate-600 mt-2 uppercase font-black tracking-[0.4em]">Awareness Initiative © 2025</p>
+    </div>
+  </footer>
+
+  <!-- Quiz Logic -->
+  <script>
+    const quizData = [
+      {
+        question: "Was 'One Nation, One Election' the standard norm in India between 1951 and 1967?",
+        answer: true,
+        explanation: "Simultaneous elections were held successfully in 1951-52, 1957, 1962, and 1967."
+      },
+      {
+        question: "Can ONOE be fully implemented without amending the Constitution of India?",
+        answer: false,
+        explanation: "It requires constitutional amendments to synchronize the fixed terms of Lok Sabha and Assemblies."
+      },
+      {
+        question: "Does the current proposal suggest including Local Body polls in the first phase?",
+        answer: false,
+        explanation: "The initial focus is on Lok Sabha and State Assemblies."
+      }
+    ];
+
+    const state = { currentStep: 0, score: 0, showFeedback: false, isCorrect: null, quizFinished: false };
+
+    function handleAnswer(userChoice) {
+      if (state.showFeedback) return;
+      const correct = userChoice === quizData[state.currentStep].answer;
+      state.isCorrect = correct;
+      if (correct) state.score++;
+      state.showFeedback = true;
+      renderQuiz();
+    }
+
+    function nextQuestion() {
+      state.showFeedback = false;
+      if (state.currentStep + 1 < quizData.length) { state.currentStep++; } else { state.quizFinished = true; }
+      renderQuiz();
+    }
+
+    function resetQuiz() {
+      state.currentStep = 0; state.score = 0; state.showFeedback = false; state.quizFinished = false;
+      renderQuiz();
+    }
+
+    function renderQuiz() {
+      const root = document.getElementById('quiz-root');
+      if (state.quizFinished) {
+        root.innerHTML = `
+          <div class="quiz-card p-12 rounded-[3.5rem] text-center">
+            <h2 class="text-4xl font-black text-white mb-4">Complete!</h2>
+            <p class="text-slate-400">Score: <span class="text-white font-black text-3xl">${state.score} / ${quizData.length}</span></p>
+            <button onclick="resetQuiz()" class="mt-8 px-12 py-5 bg-orange-600 text-white rounded-full font-black uppercase text-[10px]">Try Again</button>
+          </div>`;
+        return;
+      }
+
+      const q = quizData[state.currentStep];
+      const progress = ((state.currentStep + 1) / quizData.length) * 100;
+
+      let html = `
+        <div class="quiz-card p-12 rounded-[3.5rem]">
+          <div class="w-full bg-slate-900 h-2.5 rounded-full mb-10 overflow-hidden">
+            <div class="bg-orange-500 h-full transition-all duration-700" style="width: ${progress}%"></div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-12">${q.question}</h3>
+      `;
+
+      if (!state.showFeedback) {
+        html += `
+          <div class="grid grid-cols-2 gap-8">
+            <button onclick="handleAnswer(true)" class="py-6 bg-green-500/10 border-2 border-green-500/30 text-green-500 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-green-500 hover:text-white transition-all">YES</button>
+            <button onclick="handleAnswer(false)" class="py-6 bg-red-500/10 border-2 border-red-500/30 text-red-500 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-red-500 hover:text-white transition-all">NO</button>
+          </div>`;
+      } else {
+        html += `
+          <div class="p-8 rounded-3xl ${state.isCorrect ? 'bg-green-500/10 border border-green-500/20' : 'bg-red-500/10 border border-red-500/20'}">
+            <p class="font-black ${state.isCorrect ? 'text-green-500' : 'text-red-500'} uppercase text-[10px] mb-2">${state.isCorrect ? 'Correct' : 'Incorrect'}</p>
+            <p class="text-slate-300 text-sm mb-8">${q.explanation}</p>
+            <button onclick="nextQuestion()" class="w-full py-5 bg-white text-slate-950 rounded-2xl font-black uppercase text-[10px]">Next</button>
+          </div>`;
+      }
+      root.innerHTML = html + `</div>`;
+    }
+
+    renderQuiz();
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) { window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' }); }
+        });
+    });
+  </script>
+</body>
+</html>
