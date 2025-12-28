@@ -1,479 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CivicLens: Indian Elections Comprehensive Guide</title>
-    <!-- Tailwind CSS for modern styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            scroll-behavior: smooth;
-            /* User Requested Global Background */
-            background: radial-gradient(circle at 20% 80%, #020617 0%, #020617 40%, #02010b 100%);
-            background-attachment: fixed;
-            color: #f3f4f6;
-        }
-        .hero-pattern {
-            background-image: radial-gradient(#f97316 0.5px, transparent 0.5px), radial-gradient(#138808 0.5px, transparent 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            opacity: 0.05; 
-        }
-        .tricolor-border {
-            border-bottom: 4px solid #FF9933; /* Saffron */
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: rgba(249, 115, 22, 0.3);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #1f2937;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #4b5563;
-            border-radius: 10px;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .video-thumbnail {
-            transition: all 0.3s ease;
-        }
-        .video-thumbnail:hover {
-            border-color: #f97316;
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        .video-active {
-            border-color: #f97316;
-            background-color: rgba(249, 115, 22, 0.1);
-            box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Civic Lens | Truth & Democracy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Premium Dark Theme Base */
+    body { 
+        font-family: 'Inter', sans-serif; 
+        scroll-behavior: smooth; 
+        background: radial-gradient(circle at 20% 80%, #020617 0%, #020617 40%, #02010b 100%);
+        color: #f8fafc;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* Background Effects */
+    .hero-image-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("https://img.freepik.com/free-photo/indian-people-standing-queue-vote_53876-139970.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.15) saturate(0.3);
+      z-index: -2;
+    }
+
+    .card-glass {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+        transform: translateY(-8px);
+        border-color: rgba(249, 115, 22, 0.4);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        background: rgba(30, 41, 59, 0.5);
+    }
+
+    .nav-glass {
+        background: rgba(2, 6, 23, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Marquee Animation */
+    .party-track {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding: 16px 24px;
+      animation: scroll-parties 35s linear infinite;
+    }
+
+    @keyframes scroll-parties {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .party-track:hover {
+        animation-play-state: paused;
+    }
+
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 10px;
+    }
+
+    /* Quiz Styling */
+    .quiz-card {
+        background: rgba(15, 23, 42, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+    }
+
+    ::selection {
+        background-color: rgba(249, 115, 22, 0.4);
+        color: #fff;
+    }
+  </style>
 </head>
-<body class="min-h-screen">
+<body>
 
-    <!-- Navigation -->
-    <nav class="bg-slate-950/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <i class="fa-solid fa-landmark text-orange-500 text-2xl mr-2"></i>
-                    <span class="font-bold text-xl tracking-tight text-white">Civic<span class="text-blue-500">Lens</span></span>
-                </div>
-                <div class="hidden lg:flex items-center space-x-6">
-                    <a href="#overview" class="text-gray-400 hover:text-orange-500 transition text-sm font-medium">Overview</a>
-                    <a href="#onoe" class="text-gray-400 hover:text-orange-500 transition text-sm font-medium">ONOE</a>
-                    <a href="#visuals" class="text-gray-400 hover:text-orange-500 transition text-sm font-medium">Video Section</a>
-                    <a href="#structure" class="text-gray-400 hover:text-orange-500 transition text-sm font-medium">Structure</a>
-                    <a href="#recents" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition text-sm">2024 Updates</a>
-                </div>
-            </div>
+  <!-- Navigation Bar -->
+  <header class="nav-glass sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-eye text-orange-500 text-2xl"></i>
+        <div>
+          <div class="font-black text-xl tracking-tight text-white uppercase leading-none">Civic<span class="text-blue-500">Lens</span></div>
+          <div class="text-[9px] uppercase tracking-[3px] text-slate-500 font-bold mt-1">Truth • Unity • Democracy</div>
         </div>
-    </nav>
+      </div>
 
-    <!-- Hero Section -->
-    <header id="overview" class="relative overflow-hidden pt-16 pb-24">
-        <div class="absolute inset-0 hero-pattern z-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
-                The World's Largest <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-blue-500 to-green-600">Democracy</span>
-            </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 leading-relaxed">
-                Exploring the mechanisms and future reforms of the Indian Electoral System through immersive media and data.
+      <!-- Main Navigation -->
+      <nav class="hidden md:flex gap-8">
+        <a href="index.html" class="text-[10px] uppercase tracking-widest font-black text-orange-500 transition-colors">Home</a>
+        <a href="#fact-check" class="text-[10px] uppercase tracking-widest font-black text-slate-400 hover:text-orange-500 transition-colors">Fact Check</a>
+        <a href="#updates" class="text-[10px] uppercase tracking-widest font-black text-slate-400 hover:text-orange-500 transition-colors">Updates</a>
+        <a href="learn.html?v=2" class="text-[10px] uppercase tracking-widest font-black text-slate-400 hover:text-orange-500 transition-colors">Learn</a>
+      </nav>
+      
+      <div class="md:hidden">
+        <i class="fa-solid fa-bars text-white text-xl"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 px-4 text-center">
+    <div class="hero-image-bg"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/90 to-[#020617] z-[-1]"></div>
+    
+    <div class="max-w-4xl relative z-10">
+      <span class="text-orange-500 font-black tracking-[0.4em] uppercase text-xs mb-6 block">Citizen Empowerment Portal</span>
+      <h1 class="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
+        CIVIC <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-400 to-white">LENS</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+        Your unified platform for voter verification, non-partisan fact checks, and real-time electoral updates across the Republic of India.
+      </p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="https://electoralsearch.eci.gov.in/" target="_blank" class="group px-10 py-5 bg-orange-600 hover:bg-orange-700 text-white rounded-full font-black text-xs tracking-widest uppercase shadow-2xl shadow-orange-900/40 transition-all transform hover:scale-105 flex items-center gap-3">
+          <i class="fa-solid fa-user-check text-lg"></i> Start Verification
+        </a>
+        <a href="learn.html" class="px-10 py-5 border border-slate-700 bg-slate-800/40 hover:bg-slate-800 text-slate-300 rounded-full font-black text-xs tracking-widest uppercase transition-all flex items-center gap-3 group">
+          <i class="fa-solid fa-book-open group-hover:text-orange-500 transition-colors"></i> Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Action Cards -->
+      <div class="lg:col-span-7 space-y-8">
+        <a href="https://electoralsearch.eci.gov.in/" target="_blank" class="block group">
+          <section id="voter-verification" class="card-glass p-10 rounded-[3rem] card-hover relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-8 text-slate-800/20 pointer-events-none">
+                <i class="fa-solid fa-address-card text-9xl"></i>
+            </div>
+            <span class="text-[10px] font-black text-orange-500 uppercase tracking-widest mb-6 block">Secure ECI Access</span>
+            <div class="flex items-center gap-5 mb-6">
+               <div class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-500 border border-orange-500/20">
+                  <i class="fa-solid fa-fingerprint text-3xl"></i>
+               </div>
+               <h2 class="text-3xl font-black text-white leading-none">Voter Verification</h2>
+            </div>
+            <p class="text-slate-400 text-base leading-relaxed mb-8">
+              Confirm your official registration status, polling station location, and assembly details directly from the Election Commission of India. 
             </p>
-            <div class="mt-10 flex flex-wrap justify-center gap-4">
-                <a href="#visuals" class="px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-orange-600 hover:bg-orange-500 shadow-xl shadow-orange-900/20 transition-all transform hover:scale-105">
-                    Watch Media Center
-                </a>
-                <a href="#onoe" class="px-8 py-3 border border-white/10 text-base font-medium rounded-xl text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all transform hover:scale-105">
-                    Learn About Reform
-                </a>
+            <div class="flex items-center text-blue-400 text-xs font-black uppercase tracking-widest group-hover:gap-3 transition-all">
+                Access Official Portal <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
             </div>
-        </div>
-    </header>
+          </section>
+        </a>
 
-    <!-- Key Stats Section -->
-    <section class="bg-blue-600/10 backdrop-blur-sm border-y border-white/5 py-12 mb-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-3xl md:text-4xl font-bold text-orange-500 counter" data-target="968">0</div>
-                    <div class="mt-2 text-gray-400 text-sm font-medium uppercase tracking-wider">Million Voters</div>
-                </div>
-                <div>
-                    <div class="text-3xl md:text-4xl font-bold text-white counter" data-target="543">0</div>
-                    <div class="mt-2 text-gray-400 text-sm font-medium uppercase tracking-wider">Lok Sabha Seats</div>
-                </div>
-                <div>
-                    <div class="text-3xl md:text-4xl font-bold text-green-500 counter" data-target="1000000">0</div>
-                    <div class="mt-2 text-gray-400 text-sm font-medium uppercase tracking-wider">Polling Stations</div>
-                </div>
-                <div>
-                    <div class="text-3xl md:text-4xl font-bold text-white">18+</div>
-                    <div class="mt-2 text-gray-400 text-sm font-medium uppercase tracking-wider">Voting Age</div>
-                </div>
-            </div>
+        <section id="fact-check" class="card-glass p-10 rounded-[3rem] card-hover relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-8 text-slate-800/20 pointer-events-none">
+                <i class="fa-solid fa-check-double text-9xl"></i>
+          </div>
+          <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-6 block">Integrity Center</span>
+          <div class="flex items-center gap-5 mb-6">
+             <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 border border-blue-500/20">
+                <i class="fa-solid fa-shield-halved text-3xl"></i>
+             </div>
+             <h2 class="text-3xl font-black text-white leading-none">Fact Check Engine</h2>
+          </div>
+          <p class="text-slate-400 text-base leading-relaxed">
+            Verify claims, manifestos, and election-related forwards with curated, non‑partisan fact‑checking resources.
+          </p>
+        </section>
+      </div>
+
+      <!-- News Feed -->
+      <aside id="updates" class="lg:col-span-5">
+        <div class="card-glass p-10 rounded-[3rem] h-full flex flex-col">
+          <div class="flex justify-between items-center mb-10">
+            <h2 class="text-xs font-black text-white uppercase tracking-widest">Election Wire</h2>
+            <span class="text-[10px] bg-blue-600/20 text-blue-400 px-4 py-1.5 rounded-full border border-blue-500/20 font-bold tracking-widest">LIVE</span>
+          </div>
+
+          <div class="space-y-8 flex-grow">
+            <article class="p-6 rounded-3xl bg-slate-800/20 border border-slate-700/30 group cursor-pointer hover:bg-slate-800/40 transition-colors">
+              <span class="text-[9px] font-black text-orange-500 uppercase mb-2 block">Top Story</span>
+              <h3 class="text-white font-bold text-base mb-2 group-hover:text-blue-400">NDA crosses 200-seat mark again in Bihar assembly election 2025.</h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-4">BJP emerges as single largest party in the state results.</p>
+              <div class="text-[10px] text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-clock"></i> Updated Recently
+              </div>
+            </article>
+
+            <article class="p-6 rounded-3xl bg-slate-800/20 border border-slate-700/30 group cursor-pointer hover:bg-slate-800/40 transition-colors">
+              <span class="text-[9px] font-black text-green-500 uppercase mb-2 block">Analysis</span>
+              <h3 class="text-white font-bold text-base mb-2 group-hover:text-blue-400">Political scorecard 2025: Year bookended by key state elections.</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">National review of major winners and losers across various contests.</p>
+            </article>
+          </div>
+
+          <button class="w-full mt-10 py-4 bg-slate-800 hover:bg-slate-900 text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl transition-all border border-slate-700/50">
+            View More Updates
+          </button>
         </div>
+      </aside>
+    </div>
+
+    <!-- Party Marquee -->
+    <section class="mt-24 py-12 border-t border-slate-800">
+      <h4 class="text-center text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">Major Election Entities</h4>
+      <div class="overflow-hidden relative bg-slate-950/40 py-8 rounded-[3rem] border border-slate-800">
+        <div class="party-track">
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-orange-500 transition-all transform group-hover:-translate-y-2">🪷</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">BJP</span>
+          </div>
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-blue-500 transition-all transform group-hover:-translate-y-2">🧹</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">AAP</span>
+          </div>
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-green-500 transition-all transform group-hover:-translate-y-2">✋</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">INC</span>
+          </div>
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-orange-500 transition-all transform group-hover:-translate-y-2">➤</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">JDU</span>
+          </div>
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-purple-400 transition-all transform group-hover:-translate-y-2">🐘</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">BSP</span>
+          </div>
+          <!-- Duplicates for marquee -->
+          <div class="flex flex-col items-center gap-4 min-w-[140px] group cursor-pointer">
+            <div class="w-20 h-20 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center text-4xl group-hover:border-orange-500 transition-all transform group-hover:-translate-y-2">🪷</div>
+            <span class="text-[10px] font-black text-slate-500 group-hover:text-white transition-colors">BJP</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- One Nation One Election Section -->
-    <section id="onoe" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2">
-                    <span class="text-orange-500 font-bold tracking-widest uppercase text-xs">Policy Initiative</span>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-4 mb-8 leading-tight">
-                        One Nation, <br/><span class="text-orange-500">One Election</span> (ONOE)
-                    </h2>
-                    <p class="text-lg text-gray-400 mb-8 leading-relaxed">
-                        Synchronization of the Lok Sabha and State Legislative Assembly elections to be held simultaneously. This reform seeks to bring stability and efficiency to the Indian democratic exercise.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="mt-1 flex-shrink-0 h-8 w-8 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
-                                <i class="fa-solid fa-check text-sm"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-white">Governance Continuity</h4>
-                                <p class="text-sm text-gray-500 mt-1">Eliminates the paralysis caused by the frequent "Model Code of Conduct," allowing for faster policy implementation.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="mt-1 flex-shrink-0 h-8 w-8 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
-                                <i class="fa-solid fa-check text-sm"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-white">Reduced Public Spending</h4>
-                                <p class="text-sm text-gray-500 mt-1">Estimated to save billions by consolidating logistics, security deployment, and election staff training into a single window.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="p-6 glass-card rounded-2xl card-hover transition-all">
-                        <i class="fa-solid fa-users-viewfinder text-3xl text-orange-500 mb-4"></i>
-                        <h5 class="font-bold text-white mb-2">Voter Turnout</h5>
-                        <p class="text-xs text-gray-400 leading-relaxed">Higher engagement by reducing frequency and "voter fatigue" across the national landscape.</p>
-                    </div>
-                    <div class="p-6 glass-card rounded-2xl card-hover transition-all">
-                        <i class="fa-solid fa-shield-halved text-3xl text-blue-500 mb-4"></i>
-                        <h5 class="font-bold text-white mb-2">Social Peace</h5>
-                        <p class="text-xs text-gray-400 leading-relaxed">Shortening campaign periods limits the duration of political friction and polarization.</p>
-                    </div>
-                    <div class="p-6 glass-card rounded-2xl card-hover transition-all">
-                        <i class="fa-solid fa-briefcase text-3xl text-green-500 mb-4"></i>
-                        <h5 class="font-bold text-white mb-2">Public Services</h5>
-                        <p class="text-xs text-gray-400 leading-relaxed">Minimizes the redirection of government officials and teachers from their primary duties.</p>
-                    </div>
-                    <div class="p-6 glass-card rounded-2xl card-hover transition-all">
-                        <i class="fa-solid fa-scale-balanced text-3xl text-purple-500 mb-4"></i>
-                        <h5 class="font-bold text-white mb-2">Federal Balance</h5>
-                        <p class="text-xs text-gray-400 leading-relaxed">Sparks healthy debate on how national and state narratives will coexist in one poll.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Quiz Section -->
+    <section id="onoe-quiz" class="py-24">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <span class="text-orange-500 font-black tracking-widest uppercase text-[10px] mb-4 block">Assessment</span>
+        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Challenge Your Knowledge</h2>
+        <p class="text-slate-400 text-lg font-light leading-relaxed">Test your civic awareness on the ONOE initiative and electoral integrity.</p>
+      </div>
+      <div id="quiz-root" class="max-w-2xl mx-auto px-4"></div>
     </section>
+  </main>
 
-    <!-- Video Showcase Section -->
-    <section id="visuals" class="py-24 bg-black/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-orange-500 font-bold tracking-widest uppercase text-xs">Educational Media</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-4">Media Insights Center</h2>
-                <p class="mt-4 text-lg text-gray-400">Master electoral literacy and policy details through our curated media gallery.</p>
-            </div>
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-20 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-sm text-slate-500 mb-16">
+      <div>
+        <h5 class="text-white font-black uppercase text-xs tracking-widest mb-6 tracking-widest">Contact</h5>
+        <p>support@civiclens.demo</p>
+      </div>
+      <div>
+        <h5 class="text-white font-black uppercase text-xs tracking-widest mb-6 tracking-widest">Privacy</h5>
+        <p>Civic Lens is a high-fidelity educational prototype.</p>
+      </div>
+      <div>
+        <h5 class="text-white font-black uppercase text-xs tracking-widest mb-6 tracking-widest">Resources</h5>
+        <ul class="space-y-2 text-blue-500 font-bold uppercase text-[10px]">
+          <li><a href="https://www.eci.gov.in/" class="hover:text-white">ECI Official</a></li>
+          <li><a href="https://ddnews.gov.in/" class="hover:text-white">DD News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto pt-10 border-t border-slate-900/50 text-center">
+         <div class="text-white font-black text-2xl uppercase tracking-widest">Civic <span class="text-blue-500">Lens</span></div>
+         <p class="text-[9px] text-slate-600 mt-2 uppercase font-black tracking-[0.4em]">Awareness Initiative © 2025</p>
+    </div>
+  </footer>
 
-            <div class="flex flex-col lg:flex-row gap-8">
-                <!-- Main Player Column -->
-                <div class="lg:w-2/3">
-                    <div class="bg-black rounded-[2rem] shadow-2xl shadow-orange-500/5 overflow-hidden border border-white/10 aspect-video relative">
-                        <video id="electionVideo" class="w-full h-full" controls preload="auto" playsinline src="Message.mp4" poster="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=1200">
-                            Your browser does not support the video tag.
-                        </video>
-                        <!-- Loading Overlay -->
-                        <div id="videoPlaceholder" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-950/90 text-white p-6 text-center transition-opacity duration-500 pointer-events-none opacity-0">
-                            <i class="fa-solid fa-play text-6xl text-orange-500 mb-4 animate-pulse"></i>
-                            <h4 class="text-2xl font-bold">Switching Video...</h4>
-                        </div>
-                        <!-- UI Message Box for Errors -->
-                        <div id="videoError" class="hidden absolute top-4 left-4 right-4 bg-red-600/90 backdrop-blur text-white px-4 py-3 rounded-xl text-sm font-medium z-20 shadow-lg flex items-center">
-                            <i class="fas fa-exclamation-circle mr-3 text-lg"></i> 
-                            <span id="errorMessage">Playback failed. Please check the file name and path.</span>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h3 id="currentVideoTitle" class="text-3xl font-bold text-white">Think, Verify, Decide</h3>
-                        <p id="currentVideoDesc" class="mt-3 text-lg text-gray-400">An essential guide on building a strong democracy through informed decision-making and verifying information.</p>
-                    </div>
-                </div>
+  <!-- Quiz Logic -->
+  <script>
+    const quizData = [
+      {
+        question: "Was 'One Nation, One Election' the standard norm in India between 1951 and 1967?",
+        answer: true,
+        explanation: "Simultaneous elections were held successfully in 1951-52, 1957, 1962, and 1967."
+      },
+      {
+        question: "Can ONOE be fully implemented without amending the Constitution of India?",
+        answer: false,
+        explanation: "It requires constitutional amendments to synchronize the fixed terms of Lok Sabha and Assemblies."
+      },
+      {
+        question: "Does the current proposal suggest including Local Body polls in the first phase?",
+        answer: false,
+        explanation: "The initial focus is on Lok Sabha and State Assemblies."
+      }
+    ];
 
-                <!-- Playlist Column -->
-                <div class="lg:w-1/3">
-                    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] shadow-xl border border-white/10 h-full">
-                        <div class="flex justify-between items-center mb-8">
-                            <h4 class="font-bold text-gray-200 uppercase text-xs tracking-widest">Media Gallery</h4>
-                            <span class="text-[10px] text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full border border-orange-400/20">4 Sections</span>
-                        </div>
-                        
-                        <div class="space-y-6">
-                            <!-- Digital Literacy Section -->
-                            <div>
-                                <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-4">Electoral Literacy</p>
-                                <div class="space-y-3">
-                                    <button onclick="changeVideo('Message.mp4', 'Think, Verify, Decide', 'An essential guide on building a strong democracy through informed decision-making and verifying information.', this)" 
-                                            class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent video-active flex items-start gap-4">
-                                        <div class="bg-orange-500/20 p-3 rounded-xl text-orange-500 flex-shrink-0">
-                                            <i class="fa-solid fa-check-double"></i>
-                                        </div>
-                                        <div>
-                                            <h5 class="font-bold text-white text-sm">Think, Verify, Decide</h5>
-                                            <p class="text-xs text-gray-500 mt-1">Core Literacy</p>
-                                        </div>
-                                    </button>
+    const state = { currentStep: 0, score: 0, showFeedback: false, isCorrect: null, quizFinished: false };
 
-                                    <button onclick="changeVideo('Verify_Information_From_Verified_Sources.mp4', 'Verify Your News', 'Why checking official government sources for election news is vital to prevent the spread of misinformation.', this)" 
-                                            class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent flex items-start gap-4">
-                                        <div class="bg-blue-500/20 p-3 rounded-xl text-blue-500 flex-shrink-0">
-                                            <i class="fa-solid fa-user-shield"></i>
-                                        </div>
-                                        <div>
-                                            <h5 class="font-bold text-white text-sm">Fact-Checking News</h5>
-                                            <p class="text-xs text-gray-500 mt-1">Verification Steps</p>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
+    function handleAnswer(userChoice) {
+      if (state.showFeedback) return;
+      const correct = userChoice === quizData[state.currentStep].answer;
+      state.isCorrect = correct;
+      if (correct) state.score++;
+      state.showFeedback = true;
+      renderQuiz();
+    }
 
-                            <!-- ONOE Section -->
-                            <div class="pt-6 border-t border-white/10">
-                                <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-4">Policy Insights (ONOE)</p>
-                                <div class="space-y-3">
-                                    <button onclick="changeVideo('One_Nation_One_Election_Explained.mp4', '1. Understanding ONOE', 'A comprehensive breakdown of the proposal to synchronize state and national polls.', this)" 
-                                            class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent flex items-start gap-4">
-                                        <div class="bg-green-500/20 p-3 rounded-xl text-green-500 flex-shrink-0">
-                                            <i class="fa-solid fa-layer-group"></i>
-                                        </div>
-                                        <div>
-                                            <h5 class="font-bold text-white text-sm">Policy Definition</h5>
-                                            <p class="text-xs text-gray-500 mt-1">Structural Overview</p>
-                                        </div>
-                                    </button>
+    function nextQuestion() {
+      state.showFeedback = false;
+      if (state.currentStep + 1 < quizData.length) { state.currentStep++; } else { state.quizFinished = true; }
+      renderQuiz();
+    }
 
-                                    <button onclick="changeVideo('One_Nation_One_Election_Explained (1).mp4', '2. Economic & Social Impact', 'Analyzing how simultaneous elections reduce public spending and minimize governance paralysis.', this)" 
-                                            class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent flex items-start gap-4">
-                                        <div class="bg-purple-500/20 p-3 rounded-xl text-purple-500 flex-shrink-0">
-                                            <i class="fa-solid fa-chart-line"></i>
-                                        </div>
-                                        <div>
-                                            <h5 class="font-bold text-white text-sm">Benefits Analysis</h5>
-                                            <p class="text-xs text-gray-500 mt-1">Impact Metrics</p>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    function resetQuiz() {
+      state.currentStep = 0; state.score = 0; state.showFeedback = false; state.quizFinished = false;
+      renderQuiz();
+    }
 
-    <!-- Structure Section -->
-    <section id="structure" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-white">Parliamentary Structure</h2>
-                <p class="mt-4 text-lg text-gray-400">How the bicameral system functions today.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="glass-card rounded-[2rem] overflow-hidden border border-white/10 card-hover transition-all">
-                    <div class="h-2 bg-green-500"></div>
-                    <div class="p-10">
-                        <div class="flex items-center mb-6">
-                            <div class="bg-green-500/10 p-4 rounded-2xl mr-5 text-green-500">
-                                <i class="fa-solid fa-users text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white">Lok Sabha</h3>
-                        </div>
-                        <p class="text-gray-400 leading-relaxed">The House of the People. Members are directly elected by citizens for a 5-year term using the First-Past-The-Post system.</p>
-                    </div>
-                </div>
-                <div class="glass-card rounded-[2rem] overflow-hidden border border-white/10 card-hover transition-all">
-                    <div class="h-2 bg-orange-500"></div>
-                    <div class="p-10">
-                        <div class="flex items-center mb-6">
-                            <div class="bg-orange-500/10 p-4 rounded-2xl mr-5 text-orange-500">
-                                <i class="fa-solid fa-building-columns text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white">Rajya Sabha</h3>
-                        </div>
-                        <p class="text-gray-400 leading-relaxed">The Council of States. A permanent body where members are elected by state legislatures, representing federal interests.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    function renderQuiz() {
+      const root = document.getElementById('quiz-root');
+      if (state.quizFinished) {
+        root.innerHTML = `
+          <div class="quiz-card p-12 rounded-[3.5rem] text-center">
+            <h2 class="text-4xl font-black text-white mb-4">Complete!</h2>
+            <p class="text-slate-400">Score: <span class="text-white font-black text-3xl">${state.score} / ${quizData.length}</span></p>
+            <button onclick="resetQuiz()" class="mt-8 px-12 py-5 bg-orange-600 text-white rounded-full font-black uppercase text-[10px]">Try Again</button>
+          </div>`;
+        return;
+      }
 
-    <!-- Recent Updates Section -->
-    <section id="recents" class="py-24 bg-black/40 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-extrabold mb-12 border-b border-white/10 pb-8 text-white">2024 Election Results</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                <div class="lg:col-span-2 glass-card rounded-[2rem] p-10 border border-white/10">
-                    <h3 class="text-xl font-bold mb-8 text-white">National Seat Share</h3>
-                    <div class="space-y-10">
-                        <div>
-                            <div class="flex justify-between mb-3">
-                                <span class="text-orange-400 font-bold uppercase tracking-widest text-xs">NDA Alliance</span>
-                                <span class="text-white font-bold">293 Seats</span>
-                            </div>
-                            <div class="w-full bg-white/5 rounded-full h-4 overflow-hidden">
-                                <div class="bg-orange-500 h-4 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.4)]" style="width: 54%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-3">
-                                <span class="text-blue-400 font-bold uppercase tracking-widest text-xs">INDIA Bloc</span>
-                                <span class="text-white font-bold">234 Seats</span>
-                            </div>
-                            <div class="w-full bg-white/5 rounded-full h-4 overflow-hidden">
-                                <div class="bg-blue-500 h-4 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.4)]" style="width: 43%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card rounded-[2rem] p-8 border border-white/10">
-                    <h3 class="text-xl font-bold mb-6 text-white">Election Highlights</h3>
-                    <div id="news-feed" class="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-2"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+      const q = quizData[state.currentStep];
+      const progress = ((state.currentStep + 1) / quizData.length) * 100;
 
-    <!-- Footer -->
-    <footer class="border-t border-white/5 mt-12 py-12">
-        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
-            &copy; 2024 CivicLens Educational Portal. Empowering the Indian voter through verified data.
-        </div>
-    </footer>
+      let html = `
+        <div class="quiz-card p-12 rounded-[3.5rem]">
+          <div class="w-full bg-slate-900 h-2.5 rounded-full mb-10 overflow-hidden">
+            <div class="bg-orange-500 h-full transition-all duration-700" style="width: ${progress}%"></div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-12">${q.question}</h3>
+      `;
 
-    <script>
-        const video = document.getElementById('electionVideo');
-        const overlay = document.getElementById('videoPlaceholder');
-        const errorBox = document.getElementById('videoError');
-        const errorMsg = document.getElementById('errorMessage');
-        const titleEl = document.getElementById('currentVideoTitle');
-        const descEl = document.getElementById('currentVideoDesc');
+      if (!state.showFeedback) {
+        html += `
+          <div class="grid grid-cols-2 gap-8">
+            <button onclick="handleAnswer(true)" class="py-6 bg-green-500/10 border-2 border-green-500/30 text-green-500 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-green-500 hover:text-white transition-all">YES</button>
+            <button onclick="handleAnswer(false)" class="py-6 bg-red-500/10 border-2 border-red-500/30 text-red-500 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-red-500 hover:text-white transition-all">NO</button>
+          </div>`;
+      } else {
+        html += `
+          <div class="p-8 rounded-3xl ${state.isCorrect ? 'bg-green-500/10 border border-green-500/20' : 'bg-red-500/10 border border-red-500/20'}">
+            <p class="font-black ${state.isCorrect ? 'text-green-500' : 'text-red-500'} uppercase text-[10px] mb-2">${state.isCorrect ? 'Correct' : 'Incorrect'}</p>
+            <p class="text-slate-300 text-sm mb-8">${q.explanation}</p>
+            <button onclick="nextQuestion()" class="w-full py-5 bg-white text-slate-950 rounded-2xl font-black uppercase text-[10px]">Next</button>
+          </div>`;
+      }
+      root.innerHTML = html + `</div>`;
+    }
 
-        // 1. Counter Logic
-        const counters = document.querySelectorAll('.counter');
-        const animateCounters = () => {
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const countText = counter.innerText.replace(/,/g, '');
-                const count = +countText;
-                const increment = target / 50; 
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment).toLocaleString();
-                    setTimeout(animateCounters, 20);
-                } else {
-                    counter.innerText = target.toLocaleString();
+    renderQuiz();
+    document.querySelectorAll('a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
-            });
-        }
-
-        let ranOnce = false;
-        window.addEventListener('scroll', () => {
-            const section = document.querySelector('.counter');
-            if(!section) return;
-            const position = section.getBoundingClientRect().top;
-            if(position < window.innerHeight / 1.1 && !ranOnce){
-                animateCounters();
-                ranOnce = true;
             }
         });
-
-        // 2. Video Player Error Handling
-        video.addEventListener('error', function() {
-            errorBox.classList.remove('hidden');
-            errorMsg.innerText = `Source "${video.src.split('/').pop()}" not found. Verify file upload.`;
-            overlay.classList.add('opacity-0');
-            overlay.classList.remove('opacity-100');
-            setTimeout(() => errorBox.classList.add('hidden'), 5000);
-        });
-
-        // 3. Video Player Logic
-        let videoSwitchTimeout;
-
-        function changeVideo(src, title, desc, btnElement) {
-            if (videoSwitchTimeout) clearTimeout(videoSwitchTimeout);
-
-            errorBox.classList.add('hidden');
-            overlay.classList.remove('opacity-0');
-            overlay.classList.add('opacity-100');
-            
-            document.querySelectorAll('.video-thumbnail').forEach(btn => {
-                btn.classList.remove('video-active');
-            });
-            btnElement.classList.add('video-active');
-
-            videoSwitchTimeout = setTimeout(async () => {
-                try {
-                    video.pause();
-                    video.src = src;
-                    video.load();
-                    
-                    titleEl.innerText = title;
-                    descEl.innerText = desc;
-                    
-                    const playPromise = video.play();
-                    if (playPromise !== undefined) {
-                        await playPromise;
-                    }
-                } catch (err) {
-                    if (err.name !== 'AbortError') {
-                        console.error("Video playback error:", err);
-                    }
-                } finally {
-                    overlay.classList.add('opacity-0');
-                    overlay.classList.remove('opacity-100');
-                }
-            }, 600);
-        }
-
-        // 4. News Feed Data
-        const newsData = [
-            { title: "Voter Turnout", desc: "Turnout recorded at 65.79%.", tag: "Stats", color: "orange" },
-            { title: "Record Duration", desc: "Election held over 44 days.", tag: "Process", color: "blue" },
-            { title: "Women in Parliament", desc: "74 women MPs elected.", tag: "Demographics", color: "green" }
-        ];
-
-        const newsContainer = document.getElementById('news-feed');
-        newsData.forEach(news => {
-            const item = document.createElement('div');
-            item.className = `bg-white/5 p-5 rounded-2xl border-l-4 border-${news.color}-500 mb-3 hover:bg-white/10 transition-colors`;
-            item.innerHTML = `
-                <span class="text-[9px] font-bold text-${news.color}-400 uppercase tracking-widest block mb-1">${news.tag}</span>
-                <h4 class="text-white font-bold text-sm mb-1">${news.title}</h4>
-                <p class="text-gray-400 text-xs">${news.desc}</p>
-            `;
-            newsContainer.appendChild(item);
-        });
-    </script>
+    });
+  </script>
 </body>
 </html>
