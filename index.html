@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Elections: A Comprehensive Guide</title>
+    <title>CivicLens: Indian Elections Comprehensive Guide</title>
     <!-- Tailwind CSS for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for Icons -->
@@ -12,20 +12,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth;
+            /* User Requested Global Background */
+            background: radial-gradient(circle at 20% 80%, #020617 0%, #020617 40%, #02010b 100%);
+            background-attachment: fixed;
+            color: #f3f4f6;
+        }
         .hero-pattern {
-            background-color: #ffffff;
-            background-image: radial-gradient(#f97316 0.5px, transparent 0.5px), radial-gradient(#138808 0.5px, #ffffff 0.5px);
+            background-image: radial-gradient(#f97316 0.5px, transparent 0.5px), radial-gradient(#138808 0.5px, transparent 0.5px);
             background-size: 20px 20px;
             background-position: 0 0, 10px 10px;
-            opacity: 0.1; 
+            opacity: 0.05; 
         }
         .tricolor-border {
             border-bottom: 4px solid #FF9933; /* Saffron */
         }
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(249, 115, 22, 0.3);
         }
         .custom-scrollbar::-webkit-scrollbar {
             width: 4px;
@@ -37,38 +44,40 @@
             background: #4b5563;
             border-radius: 10px;
         }
-        .onoe-gradient {
-            background: linear-gradient(135deg, #fff 0%, #fff7ed 100%);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .video-thumbnail {
             transition: all 0.3s ease;
         }
         .video-thumbnail:hover {
             border-color: #f97316;
-            background-color: #fff7ed;
+            background-color: rgba(255, 255, 255, 0.05);
         }
         .video-active {
             border-color: #f97316;
-            background-color: #fff7ed;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background-color: rgba(249, 115, 22, 0.1);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="min-h-screen">
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-slate-950/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <i class="fa-solid fa-landmark text-orange-500 text-2xl mr-2"></i>
-                    <span class="font-bold text-xl tracking-tight">Election<span class="text-blue-600">Pedia</span> India</span>
+                    <span class="font-bold text-xl tracking-tight text-white">Civic<span class="text-blue-500">Lens</span></span>
                 </div>
                 <div class="hidden lg:flex items-center space-x-6">
-                    <a href="#overview" class="text-gray-600 hover:text-orange-500 transition text-sm font-medium">Overview</a>
-                    <a href="#onoe" class="text-gray-600 hover:text-orange-500 transition text-sm font-medium">ONOE</a>
-                    <a href="#visuals" class="text-gray-600 hover:text-orange-500 transition text-sm font-medium">Video Section</a>
-                    <a href="#structure" class="text-gray-600 hover:text-orange-500 transition text-sm font-medium">Structure</a>
+                    <a href="#overview" class="text-gray-400 hover:text-orange-500 transition text-sm font-medium">Overview</a>
+                    <a href="#onoe" class="text-gray-400 hover:text-orange-500 transition text-sm font-medium">ONOE</a>
+                    <a href="#visuals" class="text-gray-400 hover:text-orange-500 transition text-sm font-medium">Video Section</a>
+                    <a href="#structure" class="text-gray-400 hover:text-orange-500 transition text-sm font-medium">Structure</a>
                     <a href="#recents" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition text-sm">2024 Updates</a>
                 </div>
             </div>
@@ -76,20 +85,20 @@
     </nav>
 
     <!-- Hero Section -->
-    <header id="overview" class="relative bg-white overflow-hidden">
+    <header id="overview" class="relative overflow-hidden pt-16 pb-24">
         <div class="absolute inset-0 hero-pattern z-0"></div>
-        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
                 The World's Largest <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-blue-500 to-green-600">Democracy</span>
             </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
-                Exploring the mechanisms and future reforms of the Indian Electoral System.
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 leading-relaxed">
+                Exploring the mechanisms and future reforms of the Indian Electoral System through immersive media and data.
             </p>
-            <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <a href="#visuals" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 shadow-lg transition">
-                    Watch ONOE Explained
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#visuals" class="px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-orange-600 hover:bg-orange-500 shadow-xl shadow-orange-900/20 transition-all transform hover:scale-105">
+                    Watch Media Center
                 </a>
-                <a href="#onoe" class="px-8 py-3 border border-blue-600 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 shadow-sm transition">
+                <a href="#onoe" class="px-8 py-3 border border-white/10 text-base font-medium rounded-xl text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all transform hover:scale-105">
                     Learn About Reform
                 </a>
             </div>
@@ -97,86 +106,83 @@
     </header>
 
     <!-- Key Stats Section -->
-    <section class="bg-blue-900 text-white py-12">
+    <section class="bg-blue-600/10 backdrop-blur-sm border-y border-white/5 py-12 mb-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
-                    <div class="text-3xl md:text-4xl font-bold text-orange-400 counter" data-target="968">0</div>
-                    <div class="mt-2 text-blue-200 text-sm">Million Voters</div>
+                    <div class="text-3xl md:text-4xl font-bold text-orange-500 counter" data-target="968">0</div>
+                    <div class="mt-2 text-gray-400 text-sm font-medium uppercase tracking-wider">Million Voters</div>
                 </div>
                 <div>
                     <div class="text-3xl md:text-4xl font-bold text-white counter" data-target="543">0</div>
-                    <div class="mt-2 text-blue-200 text-sm">Lok Sabha Seats</div>
+                    <div class="mt-2 text-gray-400 text-sm font-medium uppercase tracking-wider">Lok Sabha Seats</div>
                 </div>
                 <div>
-                    <div class="text-3xl md:text-4xl font-bold text-green-400 counter" data-target="1000000">0</div>
-                    <div class="mt-2 text-blue-200 text-sm">Polling Stations</div>
+                    <div class="text-3xl md:text-4xl font-bold text-green-500 counter" data-target="1000000">0</div>
+                    <div class="mt-2 text-gray-400 text-sm font-medium uppercase tracking-wider">Polling Stations</div>
                 </div>
                 <div>
                     <div class="text-3xl md:text-4xl font-bold text-white">18+</div>
-                    <div class="mt-2 text-blue-200 text-sm">Voting Age</div>
+                    <div class="mt-2 text-gray-400 text-sm font-medium uppercase tracking-wider">Voting Age</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- One Nation One Election Section -->
-    <section id="onoe" class="py-20 onoe-gradient overflow-hidden">
+    <section id="onoe" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="lg:w-1/2">
-                    <span class="text-orange-600 font-bold tracking-widest uppercase text-xs">Policy Initiative</span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-6 leading-tight">
-                        One Nation, One Election (ONOE)
+                    <span class="text-orange-500 font-bold tracking-widest uppercase text-xs">Policy Initiative</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-4 mb-8 leading-tight">
+                        One Nation, <br/><span class="text-orange-500">One Election</span> (ONOE)
                     </h2>
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    <p class="text-lg text-gray-400 mb-8 leading-relaxed">
                         Synchronization of the Lok Sabha and State Legislative Assembly elections to be held simultaneously. This reform seeks to bring stability and efficiency to the Indian democratic exercise.
                     </p>
                     
-                    <div class="space-y-4">
+                    <div class="space-y-6">
                         <div class="flex items-start">
-                            <div class="mt-1 flex-shrink-0 h-6 w-6 text-green-600">
-                                <i class="fa-solid fa-circle-check"></i>
+                            <div class="mt-1 flex-shrink-0 h-8 w-8 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
+                                <i class="fa-solid fa-check text-sm"></i>
                             </div>
-                            <div class="ml-3">
-                                <h4 class="text-md font-bold text-gray-900">Governance Continuity</h4>
-                                <p class="text-sm text-gray-500">Eliminates the paralysis caused by the frequent "Model Code of Conduct," allowing for faster policy implementation.</p>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-white">Governance Continuity</h4>
+                                <p class="text-sm text-gray-500 mt-1">Eliminates the paralysis caused by the frequent "Model Code of Conduct," allowing for faster policy implementation.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="mt-1 flex-shrink-0 h-6 w-6 text-green-600">
-                                <i class="fa-solid fa-circle-check"></i>
+                            <div class="mt-1 flex-shrink-0 h-8 w-8 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
+                                <i class="fa-solid fa-check text-sm"></i>
                             </div>
-                            <div class="ml-3">
-                                <h4 class="text-md font-bold text-gray-900">Reduced Public Spending</h4>
-                                <p class="text-sm text-gray-500">Estimated to save billions by consolidating logistics, security deployment, and election staff training into a single window.</p>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-white">Reduced Public Spending</h4>
+                                <p class="text-sm text-gray-500 mt-1">Estimated to save billions by consolidating logistics, security deployment, and election staff training into a single window.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2 bg-white p-8 rounded-3xl shadow-xl border border-orange-100">
-                    <h3 class="text-xl font-bold text-orange-600 mb-6">Impact on Society</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="p-4 bg-orange-50 rounded-xl">
-                            <i class="fa-solid fa-users-viewfinder text-2xl text-orange-500 mb-3"></i>
-                            <h5 class="font-bold text-gray-900 mb-1">Voter Turnout</h5>
-                            <p class="text-xs text-gray-600">Higher engagement by reducing frequency and "voter fatigue" across the national landscape.</p>
-                        </div>
-                        <div class="p-4 bg-blue-50 rounded-xl">
-                            <i class="fa-solid fa-shield-halved text-2xl text-blue-500 mb-3"></i>
-                            <h5 class="font-bold text-gray-900 mb-1">Social Peace</h5>
-                            <p class="text-xs text-gray-600">Shortening campaign periods limits the duration of political friction and polarization.</p>
-                        </div>
-                        <div class="p-4 bg-green-50 rounded-xl">
-                            <i class="fa-solid fa-briefcase text-2xl text-green-500 mb-3"></i>
-                            <h5 class="font-bold text-gray-900 mb-1">Public Services</h5>
-                            <p class="text-xs text-gray-600">Minimizes the redirection of government officials and teachers from their primary duties.</p>
-                        </div>
-                        <div class="p-4 bg-purple-50 rounded-xl">
-                            <i class="fa-solid fa-scale-balanced text-2xl text-purple-500 mb-3"></i>
-                            <h5 class="font-bold text-gray-900 mb-1">Federal Balance</h5>
-                            <p class="text-xs text-gray-600">Sparks healthy debate on how national and state narratives will coexist in one poll.</p>
-                        </div>
+                <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 glass-card rounded-2xl card-hover transition-all">
+                        <i class="fa-solid fa-users-viewfinder text-3xl text-orange-500 mb-4"></i>
+                        <h5 class="font-bold text-white mb-2">Voter Turnout</h5>
+                        <p class="text-xs text-gray-400 leading-relaxed">Higher engagement by reducing frequency and "voter fatigue" across the national landscape.</p>
+                    </div>
+                    <div class="p-6 glass-card rounded-2xl card-hover transition-all">
+                        <i class="fa-solid fa-shield-halved text-3xl text-blue-500 mb-4"></i>
+                        <h5 class="font-bold text-white mb-2">Social Peace</h5>
+                        <p class="text-xs text-gray-400 leading-relaxed">Shortening campaign periods limits the duration of political friction and polarization.</p>
+                    </div>
+                    <div class="p-6 glass-card rounded-2xl card-hover transition-all">
+                        <i class="fa-solid fa-briefcase text-3xl text-green-500 mb-4"></i>
+                        <h5 class="font-bold text-white mb-2">Public Services</h5>
+                        <p class="text-xs text-gray-400 leading-relaxed">Minimizes the redirection of government officials and teachers from their primary duties.</p>
+                    </div>
+                    <div class="p-6 glass-card rounded-2xl card-hover transition-all">
+                        <i class="fa-solid fa-scale-balanced text-3xl text-purple-500 mb-4"></i>
+                        <h5 class="font-bold text-white mb-2">Federal Balance</h5>
+                        <p class="text-xs text-gray-400 leading-relaxed">Sparks healthy debate on how national and state narratives will coexist in one poll.</p>
                     </div>
                 </div>
             </div>
@@ -184,76 +190,101 @@
     </section>
 
     <!-- Video Showcase Section -->
-    <section id="visuals" class="py-20 bg-gray-50">
+    <section id="visuals" class="py-24 bg-black/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Educational Media</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">Election Insights: Media Center</h2>
-                <p class="mt-4 text-lg text-gray-500">Deep dive into "One Nation, One Election" through our featured video series.</p>
+            <div class="text-center mb-16">
+                <span class="text-orange-500 font-bold tracking-widest uppercase text-xs">Educational Media</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mt-4">Media Insights Center</h2>
+                <p class="mt-4 text-lg text-gray-400">Master electoral literacy and policy details through our curated media gallery.</p>
             </div>
 
             <div class="flex flex-col lg:flex-row gap-8">
                 <!-- Main Player Column -->
                 <div class="lg:w-2/3">
-                    <div class="bg-black rounded-3xl shadow-2xl overflow-hidden border border-gray-200 aspect-video relative">
-                        <video id="electionVideo" class="w-full h-full" controls poster="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=1200">
-                            <source id="videoSource" src="One_Nation_One_Election_Explained.mp4" type="video/mp4">
+                    <div class="bg-black rounded-[2rem] shadow-2xl shadow-orange-500/5 overflow-hidden border border-white/10 aspect-video relative">
+                        <video id="electionVideo" class="w-full h-full" controls preload="auto" playsinline src="Message.mp4" poster="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&q=80&w=1200">
                             Your browser does not support the video tag.
                         </video>
-                        <!-- Loading Overlay (Initial) -->
-                        <div id="videoPlaceholder" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900/90 text-white p-6 text-center transition-opacity duration-500 pointer-events-none opacity-0">
+                        <!-- Loading Overlay -->
+                        <div id="videoPlaceholder" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-950/90 text-white p-6 text-center transition-opacity duration-500 pointer-events-none opacity-0">
                             <i class="fa-solid fa-play text-6xl text-orange-500 mb-4 animate-pulse"></i>
                             <h4 class="text-2xl font-bold">Switching Video...</h4>
                         </div>
+                        <!-- UI Message Box for Errors -->
+                        <div id="videoError" class="hidden absolute top-4 left-4 right-4 bg-red-600/90 backdrop-blur text-white px-4 py-3 rounded-xl text-sm font-medium z-20 shadow-lg flex items-center">
+                            <i class="fas fa-exclamation-circle mr-3 text-lg"></i> 
+                            <span id="errorMessage">Playback failed. Please check the file name and path.</span>
+                        </div>
                     </div>
-                    <div class="mt-6">
-                        <h3 id="currentVideoTitle" class="text-2xl font-bold text-gray-900">1. Understanding One Nation, One Election</h3>
-                        <p id="currentVideoDesc" class="mt-2 text-gray-600">A detailed look at what ONOE means for the structure of Indian democracy and how the synchronization works.</p>
+                    <div class="mt-8">
+                        <h3 id="currentVideoTitle" class="text-3xl font-bold text-white">Think, Verify, Decide</h3>
+                        <p id="currentVideoDesc" class="mt-3 text-lg text-gray-400">An essential guide on building a strong democracy through informed decision-making and verifying information.</p>
                     </div>
                 </div>
 
                 <!-- Playlist Column -->
                 <div class="lg:w-1/3">
-                    <div class="bg-white p-6 rounded-3xl shadow-lg border border-gray-100">
-                        <div class="flex justify-between items-center mb-6">
-                            <h4 class="font-bold text-gray-900 uppercase text-sm tracking-wider">Featured Playlist</h4>
-                            <span class="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">2 Videos</span>
+                    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] shadow-xl border border-white/10 h-full">
+                        <div class="flex justify-between items-center mb-8">
+                            <h4 class="font-bold text-gray-200 uppercase text-xs tracking-widest">Media Gallery</h4>
+                            <span class="text-[10px] text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full border border-orange-400/20">4 Sections</span>
                         </div>
                         
-                        <div class="space-y-4">
-                            <!-- Video 1 Entry -->
-                            <button onclick="changeVideo('One_Nation_One_Election_Explained.mp4', '1. Understanding One Nation, One Election', 'A detailed look at what ONOE means for the structure of Indian democracy and how the synchronization works.', this)" 
-                                    class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent video-active flex items-start gap-4">
-                                <div class="bg-orange-100 p-3 rounded-xl text-orange-600 flex-shrink-0">
-                                    <i class="fa-solid fa-circle-play"></i>
-                                </div>
-                                <div>
-                                    <h5 class="font-bold text-gray-900 text-sm">Understanding ONOE</h5>
-                                    <p class="text-xs text-gray-500 mt-1">Definition & Mechanism</p>
-                                </div>
-                            </button>
+                        <div class="space-y-6">
+                            <!-- Digital Literacy Section -->
+                            <div>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-4">Electoral Literacy</p>
+                                <div class="space-y-3">
+                                    <button onclick="changeVideo('Message.mp4', 'Think, Verify, Decide', 'An essential guide on building a strong democracy through informed decision-making and verifying information.', this)" 
+                                            class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent video-active flex items-start gap-4">
+                                        <div class="bg-orange-500/20 p-3 rounded-xl text-orange-500 flex-shrink-0">
+                                            <i class="fa-solid fa-check-double"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-bold text-white text-sm">Think, Verify, Decide</h5>
+                                            <p class="text-xs text-gray-500 mt-1">Core Literacy</p>
+                                        </div>
+                                    </button>
 
-                            <!-- Video 2 Entry -->
-                            <button onclick="changeVideo('One_Nation_One_Election_Explained (1).mp4', '2. Importance & Impact of ONOE', 'Exploring the socio-economic benefits, cost reductions, and governance improvements of simultaneous elections.', this)" 
-                                    class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent bg-gray-50 flex items-start gap-4">
-                                <div class="bg-blue-100 p-3 rounded-xl text-blue-600 flex-shrink-0">
-                                    <i class="fa-solid fa-shield-heart"></i>
+                                    <button onclick="changeVideo('Verify_Information_From_Verified_Sources.mp4', 'Verify Your News', 'Why checking official government sources for election news is vital to prevent the spread of misinformation.', this)" 
+                                            class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent flex items-start gap-4">
+                                        <div class="bg-blue-500/20 p-3 rounded-xl text-blue-500 flex-shrink-0">
+                                            <i class="fa-solid fa-user-shield"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-bold text-white text-sm">Fact-Checking News</h5>
+                                            <p class="text-xs text-gray-500 mt-1">Verification Steps</p>
+                                        </div>
+                                    </button>
                                 </div>
-                                <div>
-                                    <h5 class="font-bold text-gray-900 text-sm">Importance & Impact</h5>
-                                    <p class="text-xs text-gray-500 mt-1">Societal Benefits</p>
-                                </div>
-                            </button>
+                            </div>
 
-                            <!-- Custom Upload Entry -->
-                            <div class="pt-4 border-t border-gray-100">
-                                <label class="cursor-pointer group flex items-center justify-center p-4 rounded-2xl border-2 border-dashed border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-all">
-                                    <div class="text-center">
-                                        <i class="fa-solid fa-cloud-arrow-up text-gray-400 group-hover:text-blue-500 mb-2"></i>
-                                        <p class="text-xs font-medium text-gray-500 group-hover:text-blue-600">Upload Own Clip</p>
-                                    </div>
-                                    <input type="file" id="videoInput" class="hidden" accept="video/*">
-                                </label>
+                            <!-- ONOE Section -->
+                            <div class="pt-6 border-t border-white/10">
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-4">Policy Insights (ONOE)</p>
+                                <div class="space-y-3">
+                                    <button onclick="changeVideo('One_Nation_One_Election_Explained.mp4', '1. Understanding ONOE', 'A comprehensive breakdown of the proposal to synchronize state and national polls.', this)" 
+                                            class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent flex items-start gap-4">
+                                        <div class="bg-green-500/20 p-3 rounded-xl text-green-500 flex-shrink-0">
+                                            <i class="fa-solid fa-layer-group"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-bold text-white text-sm">Policy Definition</h5>
+                                            <p class="text-xs text-gray-500 mt-1">Structural Overview</p>
+                                        </div>
+                                    </button>
+
+                                    <button onclick="changeVideo('One_Nation_One_Election_Explained (1).mp4', '2. Economic & Social Impact', 'Analyzing how simultaneous elections reduce public spending and minimize governance paralysis.', this)" 
+                                            class="video-thumbnail w-full text-left p-4 rounded-2xl border-2 border-transparent flex items-start gap-4">
+                                        <div class="bg-purple-500/20 p-3 rounded-xl text-purple-500 flex-shrink-0">
+                                            <i class="fa-solid fa-chart-line"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-bold text-white text-sm">Benefits Analysis</h5>
+                                            <p class="text-xs text-gray-500 mt-1">Impact Metrics</p>
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -263,89 +294,99 @@
     </section>
 
     <!-- Structure Section -->
-    <section id="structure" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-            <h2 class="text-3xl font-extrabold text-gray-900">Parliamentary Structure</h2>
-            <p class="mt-4 text-lg text-gray-500">India's bicameral system currently works as follows:</p>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                <div class="h-2 bg-green-600"></div>
-                <div class="p-8">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-full mr-4 text-green-600">
-                            <i class="fa-solid fa-users"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900">Lok Sabha</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4 text-sm">Members directly elected by citizens for a 5-year term.</p>
-                </div>
+    <section id="structure" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-white">Parliamentary Structure</h2>
+                <p class="mt-4 text-lg text-gray-400">How the bicameral system functions today.</p>
             </div>
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                <div class="h-2 bg-orange-500"></div>
-                <div class="p-8">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-orange-100 p-3 rounded-full mr-4 text-orange-600">
-                            <i class="fa-solid fa-building-columns"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="glass-card rounded-[2rem] overflow-hidden border border-white/10 card-hover transition-all">
+                    <div class="h-2 bg-green-500"></div>
+                    <div class="p-10">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-green-500/10 p-4 rounded-2xl mr-5 text-green-500">
+                                <i class="fa-solid fa-users text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Lok Sabha</h3>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900">Rajya Sabha</h3>
+                        <p class="text-gray-400 leading-relaxed">The House of the People. Members are directly elected by citizens for a 5-year term using the First-Past-The-Post system.</p>
                     </div>
-                    <p class="text-gray-600 mb-4 text-sm">A permanent body where members are elected by state legislatures.</p>
+                </div>
+                <div class="glass-card rounded-[2rem] overflow-hidden border border-white/10 card-hover transition-all">
+                    <div class="h-2 bg-orange-500"></div>
+                    <div class="p-10">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-orange-500/10 p-4 rounded-2xl mr-5 text-orange-500">
+                                <i class="fa-solid fa-building-columns text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Rajya Sabha</h3>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">The Council of States. A permanent body where members are elected by state legislatures, representing federal interests.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Recent Updates Section -->
-    <section id="recents" class="py-16 bg-gray-900 text-white">
+    <section id="recents" class="py-24 bg-black/40 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold mb-10 border-b border-gray-700 pb-6">2024 Election Results</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2 bg-gray-800 rounded-xl p-8 border border-gray-700">
-                    <h3 class="text-xl font-bold mb-6">Seat Share Breakdown</h3>
-                    <div class="space-y-6">
+            <h2 class="text-4xl font-extrabold mb-12 border-b border-white/10 pb-8 text-white">2024 Election Results</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <div class="lg:col-span-2 glass-card rounded-[2rem] p-10 border border-white/10">
+                    <h3 class="text-xl font-bold mb-8 text-white">National Seat Share</h3>
+                    <div class="space-y-10">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-orange-400 font-medium">NDA Alliance</span>
-                                <span>293 Seats</span>
+                            <div class="flex justify-between mb-3">
+                                <span class="text-orange-400 font-bold uppercase tracking-widest text-xs">NDA Alliance</span>
+                                <span class="text-white font-bold">293 Seats</span>
                             </div>
-                            <div class="w-full bg-gray-700 rounded-full h-4">
-                                <div class="bg-orange-500 h-4 rounded-full" style="width: 54%"></div>
+                            <div class="w-full bg-white/5 rounded-full h-4 overflow-hidden">
+                                <div class="bg-orange-500 h-4 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.4)]" style="width: 54%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-blue-400 font-medium">INDIA Bloc</span>
-                                <span>234 Seats</span>
+                            <div class="flex justify-between mb-3">
+                                <span class="text-blue-400 font-bold uppercase tracking-widest text-xs">INDIA Bloc</span>
+                                <span class="text-white font-bold">234 Seats</span>
                             </div>
-                            <div class="w-full bg-gray-700 rounded-full h-4">
-                                <div class="bg-blue-500 h-4 rounded-full" style="width: 43%"></div>
+                            <div class="w-full bg-white/5 rounded-full h-4 overflow-hidden">
+                                <div class="bg-blue-500 h-4 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.4)]" style="width: 43%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                    <h3 class="text-xl font-bold mb-4">Highlights</h3>
-                    <div id="news-feed" class="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar"></div>
+                <div class="glass-card rounded-[2rem] p-8 border border-white/10">
+                    <h3 class="text-xl font-bold mb-6 text-white">Election Highlights</h3>
+                    <div id="news-feed" class="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-2"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 mt-12 py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center text-gray-400 text-sm">
-            &copy; 2024 ElectionPedia Educational Portal.
+    <footer class="border-t border-white/5 mt-12 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
+            &copy; 2024 CivicLens Educational Portal. Empowering the Indian voter through verified data.
         </div>
     </footer>
 
     <script>
+        const video = document.getElementById('electionVideo');
+        const overlay = document.getElementById('videoPlaceholder');
+        const errorBox = document.getElementById('videoError');
+        const errorMsg = document.getElementById('errorMessage');
+        const titleEl = document.getElementById('currentVideoTitle');
+        const descEl = document.getElementById('currentVideoDesc');
+
         // 1. Counter Logic
         const counters = document.querySelectorAll('.counter');
         const animateCounters = () => {
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText.replace(/,/g, '');
+                const countText = counter.innerText.replace(/,/g, '');
+                const count = +countText;
                 const increment = target / 50; 
                 if (count < target) {
                     counter.innerText = Math.ceil(count + increment).toLocaleString();
@@ -367,55 +408,53 @@
             }
         });
 
-        // 2. Video Player Logic
-        function changeVideo(src, title, desc, btnElement) {
-            const video = document.getElementById('electionVideo');
-            const source = document.getElementById('videoSource');
-            const overlay = document.getElementById('videoPlaceholder');
-            const titleEl = document.getElementById('currentVideoTitle');
-            const descEl = document.getElementById('currentVideoDesc');
+        // 2. Video Player Error Handling
+        video.addEventListener('error', function() {
+            errorBox.classList.remove('hidden');
+            errorMsg.innerText = `Source "${video.src.split('/').pop()}" not found. Verify file upload.`;
+            overlay.classList.add('opacity-0');
+            overlay.classList.remove('opacity-100');
+            setTimeout(() => errorBox.classList.add('hidden'), 5000);
+        });
 
-            // Visual feedback
+        // 3. Video Player Logic
+        let videoSwitchTimeout;
+
+        function changeVideo(src, title, desc, btnElement) {
+            if (videoSwitchTimeout) clearTimeout(videoSwitchTimeout);
+
+            errorBox.classList.add('hidden');
             overlay.classList.remove('opacity-0');
             overlay.classList.add('opacity-100');
             
-            // Update Active State
             document.querySelectorAll('.video-thumbnail').forEach(btn => {
                 btn.classList.remove('video-active');
-                btn.classList.add('bg-gray-50');
             });
             btnElement.classList.add('video-active');
-            btnElement.classList.remove('bg-gray-50');
 
-            setTimeout(() => {
-                source.src = src;
-                video.load();
-                titleEl.innerText = title;
-                descEl.innerText = desc;
-                video.play();
-                overlay.classList.add('opacity-0');
-                overlay.classList.remove('opacity-100');
+            videoSwitchTimeout = setTimeout(async () => {
+                try {
+                    video.pause();
+                    video.src = src;
+                    video.load();
+                    
+                    titleEl.innerText = title;
+                    descEl.innerText = desc;
+                    
+                    const playPromise = video.play();
+                    if (playPromise !== undefined) {
+                        await playPromise;
+                    }
+                } catch (err) {
+                    if (err.name !== 'AbortError') {
+                        console.error("Video playback error:", err);
+                    }
+                } finally {
+                    overlay.classList.add('opacity-0');
+                    overlay.classList.remove('opacity-100');
+                }
             }, 600);
         }
-
-        // 3. Upload Logic
-        const videoInput = document.getElementById('videoInput');
-        videoInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const url = URL.createObjectURL(file);
-                const video = document.getElementById('electionVideo');
-                const source = document.getElementById('videoSource');
-                source.src = url;
-                video.load();
-                document.getElementById('currentVideoTitle').innerText = "Uploaded: " + file.name;
-                document.getElementById('currentVideoDesc').innerText = "Custom user-uploaded election footage.";
-                video.play();
-                
-                // Reset playlist focus
-                document.querySelectorAll('.video-thumbnail').forEach(btn => btn.classList.remove('video-active'));
-            }
-        });
 
         // 4. News Feed Data
         const newsData = [
@@ -427,10 +466,10 @@
         const newsContainer = document.getElementById('news-feed');
         newsData.forEach(news => {
             const item = document.createElement('div');
-            item.className = `bg-gray-700/30 p-4 rounded-lg border-l-4 border-${news.color}-500 mb-2`;
+            item.className = `bg-white/5 p-5 rounded-2xl border-l-4 border-${news.color}-500 mb-3 hover:bg-white/10 transition-colors`;
             item.innerHTML = `
-                <span class="text-[10px] font-bold text-${news.color}-400 uppercase tracking-widest block">${news.tag}</span>
-                <h4 class="text-white font-semibold text-sm">${news.title}</h4>
+                <span class="text-[9px] font-bold text-${news.color}-400 uppercase tracking-widest block mb-1">${news.tag}</span>
+                <h4 class="text-white font-bold text-sm mb-1">${news.title}</h4>
                 <p class="text-gray-400 text-xs">${news.desc}</p>
             `;
             newsContainer.appendChild(item);
